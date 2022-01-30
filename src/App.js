@@ -4,7 +4,7 @@ import SearchBar from './components/SearchBar';
 import { getStudents } from './services/students.js';
 import './App.css';
 
-const keywords = {
+const searchKeywords = {
     name: 'name',
     tag: 'tag',
 };
@@ -12,10 +12,11 @@ const keywords = {
 const App = () => {
     const [students, setStudents] = useState([]);
     const [searchResults, setSearchResults] = useState([]);
-    const [searchTerm, setSearchTerm] = useState('');
+    const [nameSearch, setNameSearch] = useState('');
+    const [tagSearch, setTagSearch] = useState('');
 
     const onNameSearch = term => {
-        setSearchTerm(term);
+        setNameSearch(term);
         if (term) {
             const newStudents = students.filter(({ firstName, lastName }) => {
                 const fullName = `${firstName} ${lastName}`;
@@ -27,15 +28,17 @@ const App = () => {
         }
     };
 
+    const onTagSearch = term => {};
+
     useEffect(() => {
         getStudents().then(data => setStudents(data.students));
     }, []);
 
     return (
         <div className='app'>
-            <SearchBar onSearch={onNameSearch} keyword={keywords.name} />
-            <SearchBar onSearch={onNameSearch} keyword={keywords.tag} />
-            <StudentList students={searchTerm.length ? searchResults : students} />
+            <SearchBar onSearch={onNameSearch} keyword={searchKeywords.name} />
+            <SearchBar onSearch={onNameSearch} keyword={searchKeywords.tag} />
+            <StudentList students={nameSearch.length ? searchResults : students} />
         </div>
     );
 };

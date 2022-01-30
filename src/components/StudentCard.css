@@ -1,6 +1,8 @@
 .card {
     display: grid;
     grid-template-columns: 1fr 4fr;
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 1.5rem;
 }
 
 .user-avatar {
