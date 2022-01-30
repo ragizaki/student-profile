@@ -1,6 +1,8 @@
 .card-list {
     margin: auto;
     width: 70%;
+    height: 85vh;
+    overflow: hidden;
     border-radius: 1rem;
     border: 2px solid #ededed;
     background-color: white;
