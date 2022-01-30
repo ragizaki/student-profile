@@ -33,13 +33,13 @@
     text-transform: uppercase;
     font-weight: 700;
     font-size: 2rem;
-    margin-bottom: 0;
+    margin-bottom: 0.25rem;
+    margin-top: 1.25rem;
 }
 
 .accordion-icon {
     height: 2rem;
     width: 2rem;
-    align-self: end;
     color: #aaa;
     cursor: pointer;
 }

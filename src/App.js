@@ -4,12 +4,17 @@ import SearchBar from './components/SearchBar';
 import { getStudents } from './services/students.js';
 import './App.css';
 
+const keywords = {
+    name: 'name',
+    tag: 'tag',
+};
+
 const App = () => {
     const [students, setStudents] = useState([]);
     const [searchResults, setSearchResults] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
 
-    const handleSearch = term => {
+    const onNameSearch = term => {
         setSearchTerm(term);
         if (term) {
             const newStudents = students.filter(({ firstName, lastName }) => {
@@ -28,7 +33,8 @@ const App = () => {
 
     return (
         <div className='app'>
-            <SearchBar onSearch={handleSearch} />
+            <SearchBar onSearch={onNameSearch} keyword={keywords.name} />
+            <SearchBar onSearch={onNameSearch} keyword={keywords.tag} />
             <StudentList students={searchTerm.length ? searchResults : students} />
         </div>
     );
