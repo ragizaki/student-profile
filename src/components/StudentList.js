@@ -1,6 +1,5 @@
 import React from 'react';
 import StudentCard from './StudentCard';
-import './StudentList.css';
 
 const StudentList = ({ students }) => {
     return (

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import StudentList from './components/StudentList';
 import SearchBar from './components/SearchBar';
 import { getStudents } from './services/students.js';
+import './App.css';
 
 const App = () => {
     const [students, setStudents] = useState([]);
@@ -13,7 +14,7 @@ const App = () => {
         if (term) {
             const newStudents = students.filter(({ firstName, lastName }) => {
                 const fullName = `${firstName} ${lastName}`;
-                return fullName.includes(term);
+                return fullName.toLowerCase().includes(term.toLowerCase());
             });
             setSearchResults(newStudents);
         } else {
@@ -26,9 +27,9 @@ const App = () => {
     }, []);
 
     return (
-        <div>
+        <div className='app'>
             <SearchBar onSearch={handleSearch} />
-            <StudentList students={searchTerm.length < 1 ? students : searchResults} />
+            <StudentList students={searchTerm.length ? searchResults : students} />
         </div>
     );
 };
