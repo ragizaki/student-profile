@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import StudentList from './components/StudentList';
+import SearchBar from './components/SearchBar';
 import { getStudents } from './services/students.js';
 
 const App = () => {
@@ -26,7 +27,8 @@ const App = () => {
 
     return (
         <div>
-            <StudentList onSearch={handleSearch} students={searchTerm.length < 1 ? students : searchResults} />
+            <SearchBar onSearch={handleSearch} />
+            <StudentList students={searchTerm.length < 1 ? students : searchResults} />
         </div>
     );
 };

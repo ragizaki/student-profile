@@ -1,17 +1,13 @@
 import React from 'react';
 import StudentCard from './StudentCard';
-import SearchBar from './StudentCard';
 import './StudentList.css';
 
-const StudentList = ({ students, onSearch }) => {
+const StudentList = ({ students }) => {
     return (
-        <div className='container'>
-            <SearchBar onSearch={onSearch} />
-            <section className='student-list'>
-                {students.map((student, idx) => (
-                    <StudentCard key={idx} student={student} />
-                ))}
-            </section>
+        <div className='card-list'>
+            {students.map((student, key) => (
+                <StudentCard key={key} student={student} />
+            ))}
         </div>
     );
 };
