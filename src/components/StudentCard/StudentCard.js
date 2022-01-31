@@ -46,6 +46,7 @@ const StudentCard = ({ student }) => {
         const tagsToKeep = tags.filter(tag => {
             return tag.id !== tagId;
         });
+        student.tags = tagsToKeep;
         setTags(tagsToKeep);
     };
 

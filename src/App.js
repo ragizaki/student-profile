@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import StudentList from './components/StudentList';
+import StudentList from './components/StudentList/StudentList';
 import SearchBar from './components/SearchBar';
 import { getStudents } from './services/students.js';
 import './App.css';
@@ -28,7 +28,9 @@ const App = () => {
         }
     };
 
-    const onTagSearch = term => {};
+    const onTagSearch = term => {
+        setTagSearch(term);
+    };
 
     useEffect(() => {
         getStudents().then(data => setStudents(data.students));
@@ -37,7 +39,7 @@ const App = () => {
     return (
         <div className='app'>
             <SearchBar onSearch={onNameSearch} keyword={searchKeywords.name} />
-            <SearchBar onSearch={onNameSearch} keyword={searchKeywords.tag} />
+            <SearchBar onSearch={onTagSearch} keyword={searchKeywords.tag} />
             <StudentList students={nameSearch.length ? searchResults : students} />
         </div>
     );

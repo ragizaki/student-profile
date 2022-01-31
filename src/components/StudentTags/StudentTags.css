@@ -30,4 +30,10 @@
 .tag-remove-icon {
     height: 0.8rem;
     cursor: pointer;
+    color: gray;
+    transition: 200ms;
+}
+
+.tag-remove-icon:hover {
+    color: black;
 }
