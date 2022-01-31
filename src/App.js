@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import StudentList from './components/StudentList/StudentList';
-import SearchBar from './components/SearchBar';
-import { getStudents } from './services/students.js';
 import './App.css';
 
+// services
+import { getStudents } from './services/students.js';
+
+// components
+import StudentList from './components/StudentList';
+import SearchBar from './components/SearchBar';
+
+// valid search keywords
 const searchKeywords = {
     name: 'name',
     tag: 'tag',
@@ -33,7 +38,9 @@ const App = () => {
     };
 
     useEffect(() => {
-        getStudents().then(data => setStudents(data.students));
+        getStudents()
+            .then(data => setStudents(data))
+            .catch(error => console.error(error));
     }, []);
 
     return (
