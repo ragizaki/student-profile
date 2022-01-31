@@ -6,10 +6,10 @@ const StudentTags = ({ tags, handleKeyPress, handleTagDelete }) => {
     return (
         <div className='tag-form'>
             <ul className='tag-collection'>
-                {tags.map((tag, key) => (
+                {tags.map(({ text, id }, key) => (
                     <li className='tag-entry' key={key}>
-                        {tag}
-                        <FaTimes onClick={handleTagDelete} className='tag-remove-icon' />
+                        {text}
+                        <FaTimes onClick={() => handleTagDelete(id)} className='tag-remove-icon' />
                     </li>
                 ))}
             </ul>

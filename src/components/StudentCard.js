@@ -34,15 +34,20 @@ const StudentCard = ({ student }) => {
     const handleKeyPress = e => {
         const userTag = e.target.value;
         if (e.key === 'Enter' && userTag) {
-            if (tags.find(tag => tag.toLowerCase() === userTag.toLowerCase())) {
+            if (tags.find(({ text }) => text.toLowerCase() === userTag.toLowerCase())) {
                 return;
             }
-            setTags([...tags, userTag]);
+            setTags([...tags, { text: userTag, id: tags.length + 1 }]);
             e.target.value = null;
         }
     };
 
-    const handleTagDelete = tag => {};
+    const handleTagDelete = tagId => {
+        const tagsToKeep = tags.filter(tag => {
+            return tag.id !== tagId;
+        });
+        setTags(tagsToKeep);
+    };
 
     return (
         <div className='card'>
