@@ -39,7 +39,7 @@ const App = () => {
 
     useEffect(() => {
         getStudents()
-            .then(data => setStudents(data))
+            .then(({ students }) => setStudents(students))
             .catch(error => console.error(error));
     }, []);
 
