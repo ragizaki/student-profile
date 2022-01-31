@@ -1,0 +1,33 @@
+.tag-input {
+    font-size: 0.9em;
+    width: 100%;
+    max-width: 150px;
+}
+
+.tag-form {
+    width: 40%;
+}
+
+.tag-collection {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style-type: none;
+    padding: 0;
+    margin: 0.6rem 0 0.6rem 0.5rem;
+}
+
+.tag-entry {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+    padding: 0.4rem 0.35rem;
+    border-radius: 0.25rem;
+    background-color: #dddcdd;
+    color: black;
+}
+
+.tag-remove-icon {
+    height: 0.8rem;
+    cursor: pointer;
+}
