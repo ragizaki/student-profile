@@ -1,21 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaTimes } from 'react-icons/fa';
 import './StudentTags.css';
 
-const StudentTags = ({ tags, handleKeyPress, handleTagDelete }) => {
+const StudentTags = React.memo(({ tags, handleKeyPress, handleTagDelete }) => {
+    const [tag, setTag] = useState('');
+
     return (
         <div className='tag-form'>
             <ul className='tag-collection'>
-                {tags.map(({ text, id }, key) => (
-                    <li className='tag-entry' key={key}>
+                {tags.map(({ text, id }) => (
+                    <li className='tag-entry' key={id}>
                         {text}
                         <FaTimes onClick={() => handleTagDelete(id)} className='tag-remove-icon' />
                     </li>
                 ))}
             </ul>
-            <input onKeyDown={handleKeyPress} className='tag-input' type='text' placeholder='Add a tag' />
+            <input
+                value={tag}
+                onChange={e => setTag(e.target.value)}
+                onKeyDown={handleKeyPress}
+                className='tag-input'
+                type='text'
+                placeholder='Add a tag'
+            />
         </div>
     );
-};
+});
 
 export default StudentTags;

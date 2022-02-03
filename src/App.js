@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './App.css';
 
 // services
@@ -16,26 +16,11 @@ const searchKeywords = {
 
 const App = () => {
     const [students, setStudents] = useState([]);
-    const [searchResults, setSearchResults] = useState([]);
     const [nameSearch, setNameSearch] = useState('');
     const [tagSearch, setTagSearch] = useState('');
 
-    const onNameSearch = term => {
-        setNameSearch(term);
-        if (term) {
-            const newStudents = students.filter(({ firstName, lastName }) => {
-                const fullName = `${firstName} ${lastName}`;
-                return fullName.toLowerCase().includes(term.toLowerCase());
-            });
-            setSearchResults(newStudents);
-        } else {
-            setSearchResults(students);
-        }
-    };
-
-    const onTagSearch = term => {
-        setTagSearch(term);
-    };
+    const handleNameSearch = useCallback(e => setNameSearch(e.target.value), [setNameSearch]);
+    const handleTagSearch = useCallback(e => setTagSearch(e.target.value), [setTagSearch]);
 
     useEffect(() => {
         getStudents()
@@ -45,9 +30,9 @@ const App = () => {
 
     return (
         <div className='app'>
-            <SearchBar onSearch={onNameSearch} keyword={searchKeywords.name} />
-            <SearchBar onSearch={onTagSearch} keyword={searchKeywords.tag} />
-            <StudentList students={nameSearch.length ? searchResults : students} />
+            <SearchBar value={nameSearch} onSearch={handleNameSearch} keyword={searchKeywords.name} />
+            <SearchBar value={tagSearch} onSearch={handleTagSearch} keyword={searchKeywords.tag} />
+            <StudentList students={students} name={nameSearch} tag={tagSearch} />
         </div>
     );
 };

@@ -1,12 +1,17 @@
 import React from 'react';
 import StudentCard from './StudentCard';
 
-const StudentList = ({ students }) => {
+const StudentList = ({ students, name, tag }) => {
     return (
         <div className='card-list'>
-            {students.map((student, key) => (
-                <StudentCard key={key} student={student} />
-            ))}
+            {students
+                .filter(({ firstName, lastName }) => {
+                    const fullName = `${firstName} ${lastName}`;
+                    return fullName.toLowerCase().includes(name.toLowerCase());
+                })
+                .map(student => (
+                    <StudentCard key={student.id} student={student} />
+                ))}
         </div>
     );
 };
