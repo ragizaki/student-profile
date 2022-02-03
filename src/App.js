@@ -5,8 +5,8 @@ import './App.css';
 import { getStudents } from './services/students.js';
 
 // components
-import StudentList from './components/StudentList';
-import SearchBar from './components/SearchBar';
+import StudentList from './components/StudentList/StudentList';
+import SearchBar from './components/SearchBar/SearchBar';
 
 // valid search keywords
 const searchKeywords = {

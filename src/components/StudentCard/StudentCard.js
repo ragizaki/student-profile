@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useCallback } from 'react';
-import StudentTags from './StudentTags';
+import StudentTags from './StudentTags/StudentTags';
 import './StudentCard.css';
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
 
