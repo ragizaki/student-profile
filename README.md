@@ -1,6 +1,6 @@
 # Hatchways Front-End Assessment
 
-This is the front-end project I built using React. The data is fetched from the Hatchways API.
+This is the front-end project I built using React, fetching a static list of students from the Hatchways API. The site is now live at zaki-hatchways-frontend-challenge.netfliy.app
 
 ## Running the Project
 ```git
