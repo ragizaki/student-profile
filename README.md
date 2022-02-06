@@ -18,11 +18,12 @@ The API service was included in its own file and imported. In the future, if oth
 
 ## Modern Functions and ES6
 
-The app uses functional components and modern ES6 functionality such as:
+The app uses functional components and modern ES6 functionality. such as:
 
 <ul>
     <li>Arrow functions</li>
     <li>Destructuring</li>
     <li>Spread operator</li>
     <li>.filter, .map, .find, etc.<li>
+    <li>useMemo and useCallback. I memoized the grades and information being displayed to prevent rerenders</li>
 </ul>
