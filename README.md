@@ -2,9 +2,12 @@
 
 This is the front-end project I built using React. The data is fetched from the Hatchways API.
 
-## DISCLAIMER:
-
-Unfortunately, I could not get the search students by tag functionality to work. I decided to leave in the search bar for design purposes, but it lacks the working functionality.
+## Running the Project
+```git
+git clone https://github.com/ragizaki/student-profile.git
+npm install
+npm start
+```
 
 ## Design Choices
 
