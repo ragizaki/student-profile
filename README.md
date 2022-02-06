@@ -24,6 +24,6 @@ The app uses functional components and modern ES6 functionality. such as:
     <li>Arrow functions</li>
     <li>Destructuring</li>
     <li>Spread operator</li>
-    <li>.filter, .map, .find, etc.<li>
+    <li>.filter, .map, .find, etc.</li>
     <li>useMemo and useCallback. I memoized the grades and information being displayed to prevent rerenders</li>
 </ul>
