@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import { FaTimes } from 'react-icons/fa';
 import './StudentTags.css';
 
-const StudentTags = React.memo(({ tags, handleKeyPress, handleTagDelete }) => {
-    const [tag, setTag] = useState('');
-
+const StudentTags = React.memo(({ tags, handleKeyPress, handleTagDelete, tag }) => {
     return (
         <div className='tag-form'>
             <ul className='tag-collection'>

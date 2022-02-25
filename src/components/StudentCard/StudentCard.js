@@ -3,19 +3,15 @@ import StudentTags from './StudentTags/StudentTags';
 import './StudentCard.css';
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
 
-/* Helper function for rendering user average */
-const average = grades => {
-    const toInts = grades.map(Number);
-    return toInts.reduce((acc, grade) => acc + grade) / toInts.length;
-};
-
 const StudentCard = React.memo(({ student }) => {
     const [openCard, setOpenCard] = useState(false);
     const [tags, setTags] = useState([]);
+    const [tag, setTag] = useState('');
     const { pic, firstName, lastName, email, company, skill, grades } = student;
 
     const memoizedAverage = useMemo(() => {
-        return average(grades);
+        const toInts = grades.map(Number);
+        return toInts.reduce((acc, grade) => acc + grade) / toInts.length;
     }, [grades]);
 
     const renderTestScores = grades => (
@@ -40,7 +36,7 @@ const StudentCard = React.memo(({ student }) => {
                 return;
             }
             setTags([...tags, { text: userTag, id: tags.length + 1 }]);
-            e.target.value = '';
+            setTag('');
         }
     };
 
